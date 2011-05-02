@@ -13,7 +13,6 @@
       color: #ffffff;
     }
     #container {
-      margin: 0 auto;
       width: 700px;
     }
     h1 { font-size: 3.8em; color: #257ce9; margin-bottom: 3px; }
@@ -66,8 +65,8 @@
     
     <h2>Install</h2>
     <p>
-      Copy <em>jquery.toaster.js</em>, <em>jquery.toaster.css</em>> and the 
-      <em>images</em>> directory into your project, then link the JavaScript 
+      Copy <em>jquery.toaster.js</em>, <em>jquery.toaster.css</em> and the 
+      <em>images</em> directory into your project, then link the JavaScript 
       and CSS files into your page.
     </p>
        
@@ -105,19 +104,21 @@
   <!-- ======================================== -->
   <!-- jQuery Toaster Demo: create a stream of toasts -->
   <!-- ======================================== -->
-  <link rel=stylesheet href="./jquery.toaster.js">
+  <link rel=stylesheet href="./jquery.toaster.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   <script src="./jquery.toaster.js"></script>
   <script>
+      $('<div>').toaster({
+        position: { top: 110, right: 0 }
+      });
+      
       function mktoast() {
           var levels = ['info', 'notice', 'warn', 'error'],
               level = Math.floor(Math.random() * levels.length),
               type = levels[level]
               msg = 'A sample toast of type: '+type;
                   
-          $('<div>'+msg+'</div>').toast({ 
-              type: type
-          });
+          $('<div>'+msg+'</div>').toast({ type: type });
       }
       
       $(function() {
