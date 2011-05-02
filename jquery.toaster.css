@@ -38,6 +38,7 @@
     margin-right: 10px;
 }
 
+.toast-none:before    { display: none; }
 .toast-info:before    { background: url(./images/success.png); }
 .toast-notice:before  { background: url(./images/notice.png); }
 .toast-warn:before    { background: url(./images/warning.png); }

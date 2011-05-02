@@ -12,7 +12,7 @@
             selector: '.toaster',
             
             type: 'info',
-            text: '',
+            text: 'none',
             closeText: 'Close',
             
             sticky: false,
@@ -107,7 +107,7 @@
                 var defaults = toast.defaults,
                     opts = $.extend({}, defaults, options),
                     sel = opts.selector || defaults.selector,
-                    type = opts.type = opts.type || defaults.type || 'info',
+                    type = opts.type = opts.type || defaults.type || 'none',
                     closeTxt = opts.closeText || 'Close Notice',
                     toaster = $(sel).first();
 
