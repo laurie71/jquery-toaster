@@ -34,7 +34,6 @@
   <a href="http://github.com/laurie71/jquery-toaster"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
-
     <div class="download">
       <a href="http://github.com/laurie71/jquery-toaster/zipball/master">
         <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
@@ -49,20 +48,40 @@
       A jQuery plugin that shows stacked transient notification messages.
     </div>
 
-    <p>* Progressive enhancement allows toasts to be read when JavaScript is disabled
-* Support for *info*, *notice*, *warning* and *error* notices
-* Straight-forward API: `$(selector).toast()` to get started
-* Easily tailored through options and events
-* Fully customizable
-</p><h2>Dependencies</h2>
-<p>jQuery 1.5</p>
-<h2>Install</h2>
-<p>Copy `jquery.toaster.js`, `jquery.toaster.css` and the `images` directory into your project, then link the JavaScript and CSS files into your page.</p>
-<h2>License</h2>
-<p>MIT</p>
-<h2>Authors</h2>
-<p>Laurie Harper (http://laurie.holoweb.net/)</p>
-
+    <p>
+      <ul>
+        <li>Progressive enhancement allows toasts to be read when JavaScript is disabled
+        <li>Support for *info*, *notice*, *warning* and *error* notices
+        <li>Straight-forward API: `$(selector).toast()` to get started
+        <li>Easily tailored through options and events
+        <li>Fully customizable
+      </ul>
+    </p>
+    
+    <h2>Dependencies</h2>
+    <p>
+      jQuery Toaster requires jQuery 1.5 or later. Older versions may work, 
+      but have not been tested.
+    </p>
+    
+    <h2>Install</h2>
+    <p>
+      Copy <em>jquery.toaster.js</em>, <em>jquery.toaster.css</em>> and the 
+      <em>images</em>> directory into your project, then link the JavaScript 
+      and CSS files into your page.
+    </p>
+       
+    <h2>License</h2>
+    <p>
+      jQuery is distributed under the 
+      <a href="https://github.com/laurie71/jquery-toaster/blob/master/LICENSE.md"
+          >MIT license</a>.
+    </p>
+         
+    <h2>Authors</h2>
+    <p>Laurie Harper</p>
+    <p><a href="http://laurie.holoweb.net/">http://laurie.holoweb.net/</a></p>
+    <p><a href="http://github.com/laurie71/">http://github.com/laurie71/</a></p>
 
     <h2>Download</h2>
     <p>
@@ -70,17 +89,46 @@
       <a href="http://github.com/laurie71/jquery-toaster/zipball/master">zip</a> or
       <a href="http://github.com/laurie71/jquery-toaster/tarball/master">tar</a> formats.
     </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+    <p>
+      You can also clone the project with <a href="http://git-scm.com">Git</a>
       by running:
       <pre>$ git clone git://github.com/laurie71/jquery-toaster</pre>
     </p>
 
     <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/laurie71/jquery-toaster">laurie71/jquery-toaster</a>
+      Get the source code on GitHub: 
+      <a href="http://github.com/laurie71/jquery-toaster">laurie71/jquery-toaster</a>
     </div>
 
   </div>
 
-  
+  <!-- ======================================== -->
+  <!-- jQuery Toaster Demo: create a stream of toasts -->
+  <!-- ======================================== -->
+  <link rel=stylesheet href="./jquery.toaster.js">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="./jquery.toaster.js"></script>
+  <script>
+      function mktoast() {
+          var levels = ['info', 'notice', 'warn', 'error'],
+              level = Math.floor(Math.random() * levels.length),
+              type = levels[level]
+              msg = 'A sample toast of type: '+type;
+                  
+          $('<div>'+msg+'</div>').toast({ 
+              type: type
+          });
+      }
+      
+      $(function() {
+          var dur = $.fn.toast.defaults.duration / 3;
+          //$('#toast').click(mktoast);
+          
+          mktoast(); 
+          setTimeout(mktoast, dur);
+          setTimeout(mktoast, dur*2);
+          setInterval(mktoast, dur*3);
+      });
+  </script>  
 </body>
 </html>
