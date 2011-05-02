@@ -38,7 +38,7 @@ The jQuery Toaster is available under the MIT license, the same as jQuery itself
 
   [zip]:            http://github.com/laurie71/jquery-toaster/zipball/master
   [tar]:            http://github.com/laurie71/jquery-toaster/tarball/master
-  [demo]:           https://laurie71.github.com/jquery-toaster/
+  [demo]:           http://laurie71.github.com/jquery-toaster/
   [wiki]:           https://github.com/laurie71/jquery-toaster/wiki
+  [LICENSE.md]:     https://github.com/laurie71/jquery-toaster/blob/master/LICENSE.md
   [GitHub project]: https://github.com/laurie71/jquery-toaser/
-  [LICENSE.md]:     ./LICENSE.md
