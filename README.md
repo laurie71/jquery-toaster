@@ -12,7 +12,9 @@
 * Easily tailored through options and events
 * Fully customizable
 
-## Demos
+## Demo
+
+See the plugin in action on the [demo page][].
 
 ## Documentation
 
@@ -30,38 +32,8 @@ Download the [latest version][] of the plugin, or clone the [GitHub project][] t
 
 The jQuery Toaster is available under the MIT license, the same as jQuery itself. See [LICENSE.md][] for the full terms and conditions.
 
-
-  [project wiki]:     https://github.com/laurie71/jquery-toaster/wiki
-  [latest version]:   https://github.com/laurie71/jquery-toaster/archives/v0.1.0
-  [GitHub project]:   https://github.com/laurie71/jquery-toaser/
-  [LICENSE.md]:       ./License.md
-  
-  
-<!-- ======================================== -->
-<!-- In-page demo -->
-<!-- ======================================== -->
-<link rel=stylesheet href="../jquery.toaster.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="../jquery.toaster.js"></script>
-<script>
-    function mktoast() {
-      var levels = ['info', 'notice', 'warn', 'error'],
-          level = Math.floor(Math.random() * levels.length),
-          type = levels[level]
-          msg = 'A sample toast of type: '+type;
-          
-      $('<div>'+msg+'</div>').toast({ 
-          type: type
-      });
-    }
-
-    $(function() {
-      var dur = $.fn.toast.defaults.duration / 3;
-  
-      mktoast(); 
-      setTimeout(mktoast, dur);
-      setTimeout(mktoast, dur*2);
-      setInterval(mktoast, dur*3);
-    });
-</script>
-  
+  [demo page]:      https://laurie71.github.com/jquery-toaster/
+  [project wiki]:   https://github.com/laurie71/jquery-toaster/wiki
+  [latest version]: https://github.com/laurie71/jquery-toaster/archives/v0.1.0
+  [GitHub project]: https://github.com/laurie71/jquery-toaser/
+  [LICENSE.md]:     ./LICENSE.md
