@@ -21,7 +21,7 @@
             close: null
         }
     }
-
+    
     // --------------------------------------------------------------------
     // jQuery toaster plugins
     
@@ -109,48 +109,60 @@
                     sel = opts.selector || defaults.selector,
                     type = opts.type = opts.type || defaults.type || 'none',
                     closeTxt = opts.closeText || 'Close Notice',
-                    toaster = $(sel).first();
+                    toaster = $(sel).first(),
+                    data = { opts: opts }, 
+                    that = this,
+                    $this;
+                    
+                // bail if already initialized
+                if (this.data('toast')) return;
+                this.data('toast', data);
 
+                // create container if it doesn't exist
                 if (! toaster.length) {
-                    toaster = $('<div>').toaster({ cls: sel }).appendTo('body');
+                    toaster = $('<div>').toaster({ cls: sel });
                 }
 
-                this.each(function(i, el) {
-                    var $this = $('<div>')
-                        .data('toast', opts)
-                        .addClass('toast toast-'+type)
-                        .appendTo(toaster)
-                        .append('<a href="#close" title="'+closeTxt+'">X</a>')
-                        // .append('<a href="#close">X</a>')
-                        .append(el);
+                $this = $('<div>')
+                    .addClass('toast')
+                    .appendTo(toaster)
+                    .append('<a href="#close" title="'+closeTxt+'">X</a>')
+                    .append(this);
                     
-                    if (opts.width) {
-                        $this.css('width', opts.width);
-                    }
-                    
-                    $('>a', $this)
-                        .click(function(e) {
-                            e.preventDefault();
-                            $this.toast('close');
-                        });
-                        
-                    if (! opts.sticky) {
-                        setTimeout(function() {
-                            $this.toast('close');
-                        }, opts.duration);
-                    }
+                data.wrapper = $this;
+                
+                if (opts.type && opts.type != 'none') {
+                    $this.addClass('toast-' + opts.type);
+                }
+                
+                if (opts.width) {
+                    $this.css('width', opts.width);
+                }
+                
+                $('>a', $this).click(function(e) {
+                    e.preventDefault();
+                    this.toast('close');
                 });
+                    
+                if (! opts.sticky) {
+                    setTimeout(function() {
+                        that.toast('close');
+                    }, opts.duration);
+                }
                 
                 return this;
             },
             
             close: function() {
-                var opts = this.data('toast'),
-                    $this = this;
+// console.log('close', this, this.data('toast'));
+                var data = this.data('toast'),
+                    $this = data.wrapper,
+                    opts = data.opts;
                     
                 $this.animate({ opacity: '0' }, 600, function() {
                     $this.animate({  height: '0', margin: 0, padding: 0 }, 600, function() {
                         $this.remove();
+                        
                         if (typeof(opts.close) == 'function') {
                             opts.close();
                         }
