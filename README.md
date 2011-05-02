@@ -28,10 +28,10 @@ Download the [latest version][] of the plugin, or clone the [GitHub project][] t
 
 ## License
 
-The jQuery Toaster is available under the MIT license, the same as jQuery itself. See [License.md][] for the full terms and conditions.
+The jQuery Toaster is available under the MIT license, the same as jQuery itself. See [LICENSE.md][] for the full terms and conditions.
 
 
-[project wiki] (https://github.com/jquery-toaser/wiki)
-[latest version] (https://github.com/jquery-toaser/...)
-[GitHub project] (https://github.com/jquery-toaser)
-[License.md] (./License.md)
+  [project wiki]:     https://github.com/jquery-toaser/wiki
+  [latest version]:   https://github.com/jquery-toaser/...
+  [GitHub project]:   https://github.com/jquery-toaser
+  [LICENSE.md]:       ./License.md
