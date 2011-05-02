@@ -2,7 +2,8 @@
 
 `jquery-toaster` is a jQuery plugin that shows stacked transient notification messages. 
 
-<img alt="Sample image showing 'toast' notifications" src="./toast.png">
+<img alt="Sample image showing 'toast' notifications"
+  src="https://github.com/laurie71/jquery-toaster/raw/master/toast.png">
      
 ## Features
 
