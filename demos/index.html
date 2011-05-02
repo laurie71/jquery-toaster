@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>jQuery Toaster Plugin</title>
+    <link rel=stylesheet href="../jquery.toaster.css">
+</head>
+<body>
+    <h1>jQuery Toaster Plugin</h1>
+    <button id="toast">Toast!</button>
+    
+    <div id="x"></div>
+    
+    <!-- ======================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="../jquery.toaster.js"></script>
+    <script>
+        function mktoast() {
+            var levels = ['info', 'notice', 'warn', 'error'],
+                level = Math.floor(Math.random() * levels.length),
+                type = levels[level]
+                msg = 'A sample toast of type: '+type;
+                    
+            $('<div>'+msg+'</div>').toast({ 
+                type: type
+            });
+        }
+        
+        $(function() {
+            var dur = $.fn.toast.defaults.duration / 3;
+            $('#toast').click(mktoast);
+            
+            mktoast(); 
+            setTimeout(mktoast, dur);
+            setTimeout(mktoast, dur*2);
+            setInterval(mktoast, dur*3);
+        });
+    </script>
+</body>
+</html>
