@@ -22,45 +22,6 @@
         }
     }
 
-
-    function Toaster(options) {
-        this.options = $.extend({}, defaults.toast, options);
-        this.toasts = [];
-    }
-    
-    Toaster.prototype.add = function(toast) {
-        this.toasts.push(toast);
-        return toast;
-    }
-    
-    Toaster.prototype.remove = function(toast) {
-        var idx = this.toasts.indexOf(toast);
-        if (idx >= 0) return this.toasts.splice(idx, 1);
-        return null;
-    }
-    
-    Toaster.prototype.clear = function() {
-        $.each(this.toasts, function(i, t) {
-            t.close();
-        });
-    }
-    
-    
-    function Toast(toaster, options) {
-        this.options = $.extend({}, defaults.toast, options);
-        this.toaster = toaster;
-        this.toaster.add(this)
-            .fadeIn();
-    }
-    
-    Toast.prototype.close = function() {
-        this.toaster.remove(this)
-            .fadeOut();
-    }
-    
-    Toast.prototype.fadeIn = function() {} // xxx todo
-    Toast.prototype.fadeOut = function() {} // xxx todo
-    
     // --------------------------------------------------------------------
     // jQuery toaster plugins
     
@@ -101,7 +62,6 @@
                     || { top: 0, right: 0 };
                 
                 $this.first()
-                    .data('toaster', new Toaster(opts))
                     .addClass('toaster')
                     .css('position', 'absolute')
                     .appendTo('body');
