@@ -95,15 +95,16 @@
                 var defaults = toaster.defaults,
                     opts = $.extend({}, defaults, options),
                     $this = this.first();
-                    
+                
                 opts.position = opts.position 
                     || defaults.position 
                     || { top: 0, right: 0 };
-                    
+                
                 $this.first()
                     .data('toaster', new Toaster(opts))
                     .addClass('toaster')
-                    .css('position', 'absolute');
+                    .css('position', 'absolute')
+                    .appendTo('body');
                     
                 cssTRBL($this, '', [
                     opts.position.top,
@@ -149,7 +150,6 @@
                     type = opts.type = opts.type || defaults.type || 'info',
                     closeTxt = opts.closeText || 'Close Notice',
                     toaster = $(sel).first();
-console.log('toast type: '+type);
 
                 if (! toaster.length) {
                     toaster = $('<div>').toaster({ cls: sel }).appendTo('body');
