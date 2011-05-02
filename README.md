@@ -35,3 +35,33 @@ The jQuery Toaster is available under the MIT license, the same as jQuery itself
   [latest version]:   https://github.com/laurie71/jquery-toaster/archives/v0.1.0
   [GitHub project]:   https://github.com/laurie71/jquery-toaser/
   [LICENSE.md]:       ./License.md
+  
+  
+<!-- ======================================== -->
+<!-- In-page demo -->
+<!-- ======================================== -->
+<link rel=stylesheet href="../jquery.toaster.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="../jquery.toaster.js"></script>
+<script>
+    function mktoast() {
+      var levels = ['info', 'notice', 'warn', 'error'],
+          level = Math.floor(Math.random() * levels.length),
+          type = levels[level]
+          msg = 'A sample toast of type: '+type;
+          
+      $('<div>'+msg+'</div>').toast({ 
+          type: type
+      });
+    }
+
+    $(function() {
+      var dur = $.fn.toast.defaults.duration / 3;
+  
+      mktoast(); 
+      setTimeout(mktoast, dur);
+      setTimeout(mktoast, dur*2);
+      setInterval(mktoast, dur*3);
+    });
+</script>
+  
