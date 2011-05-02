@@ -123,12 +123,8 @@
       
       $(function() {
           var dur = $.fn.toast.defaults.duration / 3;
-          //$('#toast').click(mktoast);
-          
+          setInterval(mktoast, dur);
           mktoast(); 
-          setTimeout(mktoast, dur);
-          setTimeout(mktoast, dur*2);
-          setInterval(mktoast, dur*3);
       });
   </script>  
 </body>
